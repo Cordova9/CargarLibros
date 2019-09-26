@@ -1,5 +1,4 @@
 package com.example.cargarlibros;
-
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
@@ -56,13 +55,8 @@ class TaskCargarLibros extends AsyncTask<URL,Integer, String> {
         try {
             JSONObject objeto = new JSONObject(s);
             JSONArray libros = objeto.getJSONArray("items");
-
             actividad.llenarlibros(libros);
 
-            JSONObject libro = libros.getJSONObject(0);
-            JSONObject infolibro = libro.getJSONObject("volumeInfo");
-            //Toast.makeText(context,infolibro.getString("title"),Toast.LENGTH_LONG).show();
-            // Toast.makeText(context,libros.getJSONObject(0).getString("id"),Toast.LENGTH_LONG).show();
         } catch (JSONException e) {
             e.printStackTrace();
         }
